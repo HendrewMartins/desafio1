@@ -30,7 +30,7 @@
 					<div class="col-md-8 clearfix">
 						<div class="shop-menu clearfix pull-right">
 							<ul class="nav navbar-nav">
-								<li><a href=""><i class="fa fa-lock"></i> Entrar</a></li>
+								<li><a href="" id="descemail"><i class="fa fa-lock"></i> Entrar</a></li>
 							</ul>
 						</div>
 					</div>
@@ -465,11 +465,22 @@
 	</footer>
 	
 	<script>
+	pegarEmail();
+	
 	function saveEmail(){
 			var email = document.getElementById('email').value;
 			localStorage.setItem('email', email);
 			alert("Email adicionado ao localStorage: " + email + " !");
-		}
+			pegarEmail();
+	}
+	
+	function pegarEmail(){
+	  if(localStorage.getItem('email')){
+		document.getElementById("descemail").innerHTML = localStorage.getItem('email');
+	  }else{
+		document.getElementById("descemail").innerHTML = " Entrar";
+	  }
+	}		
 	</script>
 	
     <script src="js/jquery.js"></script>
